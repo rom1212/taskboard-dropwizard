@@ -1,0 +1,30 @@
+logging:
+  level: INFO
+  loggers:
+    taskboard.io: DEBUG
+  appenders:
+    - type: file
+      currentLogFilename: /tmp/taskboard/service.log
+      timeZone: UTC
+      threshold: ALL
+      archive: true
+      archivedLogFilenamePattern: /tmp/taskboard/service.log.%d.gz
+      archivedFileCount: 10
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+  requestLog:
+    appenders:
+      - type: file
+        currentLogFilename: /tmp/taskboard/access.log
+        threshold: ALL
+        timeZone: UTC
+        archive: true
+        archivedLogFilenamePattern: /tmp/taskboard/access.log.%d.gz
+        archivedFileCount: 10

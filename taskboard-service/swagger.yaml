@@ -1,0 +1,29 @@
+---
+swagger: "2.0"
+info:
+  version: "0.1.0"
+  title: "Task Board Service API"
+tags:
+- name: "tasks"
+  description: "Task APIs"
+- name: "Tasks"
+paths:
+  /v1/tasks:
+    get:
+      tags:
+      - "Tasks"
+      summary: "listTasks"
+      description: ""
+      operationId: "listTasks"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              type: "string"
